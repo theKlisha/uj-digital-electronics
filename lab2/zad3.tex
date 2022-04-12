@@ -1,0 +1,83 @@
+\clearpage
+\section{}
+Skonstruowano układ całkujący.
+Zmierzono następnie jego charakterystykę amplitudową i fazową.
+Z pomiarów wyznaczono górną częstotliwość graniczną i porównano ją z wartością teoretyczną.
+Zaobserwowano następnie odpowiedź układu na falę prostokątną.
+
+\begin{align}
+	C &= 1.67 \:\text{nF} \\
+	R &= 1.98 \:\text{k}\Omega \\
+	\tau &= RC = 3.3066 \cdot 10^{-6} \:\text{s} \\
+	f_0 &= \frac{1}{2\pi\:\tau} = \frac{1}{2\pi\:RC} = 48.135 \:\text{kHz}
+\end{align}
+
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}[european] \draw
+		(0,2) node[anchor=east] {$U_{we}$}
+		to[short, *-] (1,2)
+		to[R, l=$C$] (3,2)
+		to[short, *-*] (5,2)
+		node[anchor=west] {$U_{wy}$} 
+
+		(3,2) to[C, l=$R$] (3,0) node[ground](GND){} 
+		;
+	\end{circuitikz}
+	\caption{Schemat układu różniczkującego}
+\end{figure}
+
+% Podając na wejście falę prostokątną o okresach z zakresu 0.5tau 10tau zaobserwować przebiegi impulsów wyjściowych
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c|c|c|c}
+		\hline
+		\(f\) [Hz] & \(\phi\) [deg] & \(U_{we}\) [V] & \(U_{wy}\) [V]
+		\\ \hline\hline
+		% 100	& -0.8	& 9.83	& 9.80		\\ \hline
+		% 200	& -0.7	& 9.84	& 9.80		\\ \hline
+		% 500	& -1.0	& 9.81	& 9.80		\\ \hline
+		1k		& -0.9	& 9.80	& 9.80		\\ \hline
+		2k		& -2.9	& 9.80	& 9.80		\\ \hline
+		5k		& -5.4	& 9.80	& 9.79		\\ \hline
+		10k		& -8.2	& 9.80	& 9.64		\\ \hline
+		20k		& -14.7	& 9.80	& 9.20		\\ \hline
+		50k		& -42.8	& 9.68	& 7.63		\\ \hline
+		100k	& -58.0	& 9.52	& 5.02		\\ \hline
+		200k	& -72.4	& 9.41	& 2.85		\\ \hline
+		500k	& -81.7	& 9.44	& 1.21		\\ \hline
+		1M		& -89.3	& 9.33	& 0.59		\\ \hline
+	\end{tabular}
+	\caption{Zmierzone napięcia wejściowego, wyjściowego oraz kąta przesunięcia fazowego dla zadanych częstotliwości}
+\end{table}
+
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=\textwidth]{include/3/sample.png}
+% 	\caption{przykładowy pomiar kąta przesunięcia fazowego \(phi\) oraz amplitud \(U_{we}\) i \(U_{wy}\)}
+% \end{figure}
+
+\begin{figure}[H]
+	\centering
+	\input{include/3/chart_t.pgf}
+	\caption{Odpowiedź układu w funkcji częstotliwości}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\input{include/3/chart_phi.pgf}
+	\caption{Przesunięcie fazowe w funkcji częstotliwości}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{include/3/20k.png}
+	\caption{Obserwacja odpowiedzi układu na falę prostokątną o \(f=20\)kHz}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{include/3/50k.png}
+	\caption{Obserwacja odpowiedzi układu na falę prostokątną o \(f=50\)kHz}
+\end{figure}

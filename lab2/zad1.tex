@@ -1,0 +1,66 @@
+\section{}
+Zmontowano układ różniczkujący, podano na jego wejście napięcia sinusoidalne w szerokim zakresie częstotliwości.
+Mierzono amplitudę wyjściową oraz kąt przesunięcia fazowego.
+
+\begin{align}
+	C &= 1.67 \:\text{nF} \\
+	R &= 1.98 \:\text{k}\Omega \\
+	\tau &= RC = 3.3066 \cdot 10^{-6} \:\text{s} \\
+	f_0 &= \frac{1}{2\pi\:\tau} = \frac{1}{2\pi\:RC} = 48.135 \:\text{kHz}
+\end{align}
+
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}[european] \draw
+		(0,2) node[anchor=east] {$U_{we}$}
+		to[short, *-] (1,2)
+		to[C, l=$C$] (3,2)
+		to[short, *-*] (5,2)
+		node[anchor=west] {$U_{wy}$} 
+
+		(3,2) to[R, l=$R$] (3,0) node[ground](GND){} 
+		;
+	\end{circuitikz}
+	\caption{Schemat układu różniczkującego}
+\end{figure}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c|c|c|c}
+		\hline
+		\(f\) [Hz] & \(\phi\) [deg] & \(U_{we}\) [V] & \(U_{wy}\) [V]
+		\\ \hline\hline
+		% 100	& 119.5		& 9.86	& 12m		\\ \hline
+		% 200	& 103.0		& 9.82	& 26m		\\ \hline
+		% 500	& 90.1		& 9.82	& 66m		\\ \hline
+		1k		& 88.4		& 9.81	& 144m		\\ \hline
+		2k		& 85.4		& 9.80	& 292m		\\ \hline
+		5k		& 84.2		& 9.80	& 722m		\\ \hline
+		10k		& 81.0		& 9.80	& 1.42		\\ \hline
+		20k		& 70.9		& 9.80	& 2.72		\\ \hline
+		50k		& 48.9		& 9.58	& 5.52		\\ \hline
+		100k	& 30.3		& 9.48	& 7.48		\\ \hline
+		200k	& 13.1		& 9.47	& 8.37		\\ \hline
+		500k	& 6.8		& 9.51	& 8.26		\\ \hline
+		1M		& 2.7		& 9.31	& 8.39		\\ \hline
+	\end{tabular}
+	\caption{Zmierzone napięcia wejściowego, wyjściowego oraz kąta przesunięcia fazowego dla zadanych częstotliwości}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+	\input{include/1/chart_t.pgf}
+	\caption{Odpowiedź układu w funkcji częstotliwości}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\input{include/1/chart_phi.pgf}
+	\caption{Przesunięcie fazowe w funkcji częstotliwości}
+\end{figure}
+
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=\textwidth]{include/1/sample.png}
+% 	\caption{przykładowy pomiar kąta przesunięcia fazowego \(phi\) oraz amplitud \(U_{we}\) i \(U_{wy}\)}
+% \end{figure}
