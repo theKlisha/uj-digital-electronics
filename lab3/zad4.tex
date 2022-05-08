@@ -1,4 +1,41 @@
+\clearpage
 \section{}
-Dla zadanego napięcia histerezy równego l V zbudować przerzutnik Schmidta. 
-Zaobserwować i odrysować przebiegi napięcia wyjściowego przy sinusoidalnym i trójkątnym napięciu wejściowym.
-Zmierzyć histerezę i wykreślić statyczną charakterystykę układu.
+Zbudowano przerzutnik Schmidta o napięciu histerezy 1V.
+Zaobserwowano przebiegi napięcia wyjściowego przy sinusoidalnym i trójkątnym napięciu wejściowym.
+% Zmierzono histerezę i wykreślić statyczną charakterystykę układu.
+
+\begin{align}
+    R_1 & = 109.5k\Omega \\
+    R_2 & = 9.9k\Omega
+\end{align}
+\begin{align}
+    U_{p} = \frac{R_2}{R_1 + R_2}\;U_{wy}
+    = \frac{9.9k\Omega}{109.5k\Omega+9.9k\Omega}\;12.11V = 1.004V
+\end{align}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[european]
+        \draw (0, 0) node[op amp] (opamp) {};
+
+        \draw (opamp.-) to[short, -*] ++(-1,0)
+        node[anchor=east] {$U_{we}$};
+
+        \draw (opamp.out)
+        to[short,*-*] ++(1,0)
+        node[anchor=west] {$U_{wy}$};
+
+        \draw (opamp.out)
+        to[R, l=$R_2$] ++(0,-2)
+        coordinate (c);
+
+        \draw (c)
+        to[R, l=$R_2$] ++(0,-2)
+        node[ground](GND){};
+
+        \draw (opamp.+)
+        to[short,-] (opamp.+ |- c)
+        to[short,-*] (c);
+    \end{circuitikz}
+    \caption{Schemat przerzutnika Schmidta}
+\end{figure}
