@@ -1,0 +1,37 @@
+\clearpage
+\section{}
+Zmontowano sumator o dwóch wejściach.
+
+% Zsumować drgania sinusoidalne z dwóch generatorów, obserwować zdudnienia przebiegów.
+
+\begin{align}
+    R_1 &= 19.77k\Omega \\
+    R_2 &= 1.99k\Omega \\
+    R_3 &= 2.01k\Omega \\
+\end{align}
+\begin{align}
+    U_{wy} = -\;\frac{R_2}{R_1}\;U_{we}
+\end{align}
+
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}[european] 
+        \draw (0, 0) node[op amp] (opamp) {};
+        
+        % \draw (opamp.-) to[short, -*] ++(-2,0)
+        % coordinate (nNode)
+        % node[anchor=east] {$U_{we}$};
+        
+        \draw (opamp.-) to[short,*-] ++(0,1)
+        coordinate (leftR)
+        to[R, l=$R_2$] (leftR -| opamp.out)
+        to[short,-*] (opamp.out)
+        to[short,-*] ++(1,0)
+        node[anchor=west] {$U_{wy}$};
+        
+        \draw (opamp.+)
+        to[short,-] ++(0,-1)
+        node[ground](GND){};
+	\end{circuitikz}
+	\caption{Schemat sumatora o dwóch wejściach}
+\end{figure}

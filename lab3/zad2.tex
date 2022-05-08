@@ -1,0 +1,75 @@
+\clearpage
+\section{}
+Zmontowano wzmacniacz odwracający fazę o wzmocnieniu 10.
+Zmierzone wartości rezystancji \(R_1\) i \(R_2\) to odpowiednio \(2.01k\Omega\) i \(19.77k\Omega\).
+Jako wzmacniacza operacyjnego użyto układu scalonego uA741.
+Wyznaczona charakterystyka odpowiada zawartym w nocie katalogowej uA741 informacjom na temat maksymalnego napięcia wyjściowego od częstotliwości (charakterystyka załamuje się od 10kHz).
+
+% Zdjąć charakterystykę częstotliwościową i fazową.
+
+\begin{figure}[H]
+    \begin{align}
+        U_{wy} = -\;\frac{R_2}{R_1}\;U_{we}
+        = -\;\frac{19.77k\Omega}{2.01k\Omega}\;U_{we}
+        = -9.836\;U_{we}
+    \end{align}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}[european] 
+        \draw (0, 0) node[op amp] (opamp) {};
+        
+        \draw (opamp.-) to[R, l=$R_1$] ++(-2,0)
+        to[short,-*] ++(-1,0)
+        node[anchor=east] {$U_{we}$};
+        
+        \draw (opamp.-) to[short,*-] ++(0,1)
+        coordinate (leftR)
+        to[R, l=$R_2$] (leftR -| opamp.out)
+        to[short,-*] (opamp.out)
+        to[short,-*] ++(1,0)
+        node[anchor=west] {$U_{wy}$};
+        
+        \draw (opamp.+)
+        to[short,-] ++(0,-1)
+        node[ground](GND){};
+	\end{circuitikz}
+	\caption{Schemat wzmacniacza odwracającego fazę}
+\end{figure}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c|c|c|c}
+		\hline
+		\(f\) [Hz] & \(\phi\) [deg] & \(U_{we}\) [V] & \(U_{wy}\) [V]
+		\\ \hline\hline
+		100		& 176.7	& 959m	& 9.32		\\ \hline
+		200		& 178.2	& 957m	& 9.38		\\ \hline
+		500		& 179.8	& 953m	& 9.27		\\ \hline
+        1k		& 176.7	& 954m	& 9.25		\\ \hline
+        2k		& 175.8	& 950m	& 9.30		\\ \hline
+        5k		& 177.8	& 952m	& 9.23		\\ \hline
+        10k		& 174.2	& 966m	& 9.24		\\ \hline
+        20k		& 162.6	& 958m	& 9.02		\\ \hline
+        50k		& 133.7	& 985m	& 6.70		\\ \hline
+        100k    & 114.1	& 982m	& 3.28		\\ \hline
+        200k    & 97.6	& 989m	& 1.67  	\\ \hline
+        500k    & 91.7	& 985m	& 0.70  	\\ \hline
+        1M      & 75.7	& 981m	& 0.33  	\\ \hline
+	\end{tabular}
+	\caption{Zmierzone napięcia wejściowego, wyjściowego oraz kąta przesunięcia fazowego dla zadanych częstotliwości.
+    Od około 30kHz sygnał wyjściowy był znacząco zniekształcony}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \input{include/2/chart_t.pgf}
+    \caption{Odpowiedź układu w funkcji częstotliwości}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{include/2/chart_phi.pgf}
+    \caption{Przesunięcie fazowe w funkcji częstotliwości}
+\end{figure}
