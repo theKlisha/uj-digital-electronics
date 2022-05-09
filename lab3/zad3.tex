@@ -1,17 +1,17 @@
 \clearpage
 \section{}
 Zmontowano sumator o dwóch wejściach.
-
-% Zsumować drgania sinusoidalne z dwóch generatorów, obserwować zdudnienia przebiegów.
+Zsumowano drgania sinusoidalne \(U_1\) i \(U_2\) z dwóch generatorów o zbliżonych częstotliwościach \(f_1 = 3\)kHz i \(f_2 = 3.2\)kHz.
+Zmierzona częstotliwość powstałego w ten sposób przebiegu dudnień \(f_{dz} = 100.2\)Hz odpowiada wartości teoretycznej \(f_d = 100\)Hz wynikającej z obliczeń.
 
 \begin{align}
-    R_0 & = 19.77k\Omega \\
-    R_1 & = 1.99k\Omega  \\
-    R_2 & = 2.01k\Omega  \\
-\end{align}
-\begin{align}
-    U_{wy} = -\;R_0 \biggl( \frac{U_1}{R_1} + \frac{U_2}{R_2} \biggr)
-    = -\biggl( 9.934\;U_1 + 9.836\;U_2 \biggr)
+    R_0    & = 19.77k\Omega                                             \\
+    R_1    & = 1.99k\Omega                                              \\
+    R_2    & = 2.01k\Omega                                              \\
+    % 
+    U_{wy} & = -\;R_0 \biggl( \frac{U_1}{R_1} + \frac{U_2}{R_2} \biggr)
+    = -\biggl( 9.934\;U_1 + 9.836\;U_2 \biggr)                          \\
+    f_d    & = \frac{|f_1 - f_2|}{2} = 100\text{Hz}
 \end{align}
 
 \begin{figure}[H]
@@ -42,4 +42,10 @@ Zmontowano sumator o dwóch wejściach.
         node[ground](GND){};
     \end{circuitikz}
     \caption{Schemat sumatora o dwóch wejściach}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{include/3/1.png}
+    \caption{Przebieg napięcia wyjściowego \(U_{wy}\)}
 \end{figure}

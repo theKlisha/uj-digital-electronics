@@ -1,8 +1,8 @@
 \clearpage
 \section{}
 Zbudowano przerzutnik Schmidta o napięciu histerezy 1V.
-Zaobserwowano przebiegi napięcia wyjściowego przy sinusoidalnym i trójkątnym napięciu wejściowym.
-% Zmierzono histerezę i wykreślić statyczną charakterystykę układu.
+Zaobserwowano przebiegi napięcia wyjściowego przy sinusoidalnym i trójkątnym napięciu wejściowym oraz zmierzono histerezę.
+Zmierzone napięcie histerezy jest większe o około \(3.5\%\) od wartości teoretycznej wynikającej z obliczeń.
 
 \begin{align}
     R_1 & = 109.5k\Omega \\
@@ -38,4 +38,23 @@ Zaobserwowano przebiegi napięcia wyjściowego przy sinusoidalnym i trójkątnym
         to[short,-*] (c);
     \end{circuitikz}
     \caption{Schemat przerzutnika Schmidta}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{include/4/3.png}
+    \caption{Napięcie \(U_{wy}\) (Y) w funkcji napięcia \(U_{we}\) (X)}
+\end{figure}
+
+\clearpage
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{include/4/1.png}
+    \caption{Przebieg napięcia wyjściowego \(U_{wy}\) przy sinusoidalnym napięciu wejściowym \(U_{we}\)}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{include/4/2.png}
+    \caption{Przebieg napięcia wyjściowego \(U_{wy}\) przy trójkątnym napięciu wejściowym \(U_{we}\)}
 \end{figure}
