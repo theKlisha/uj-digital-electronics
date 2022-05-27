@@ -1,0 +1,32 @@
+\section{}
+Zamontowano układ scalony 7400 w gnieździe płytki UC-1 a następnie zbadano tablicę logiczną dla zawartych w nim bramek logicznych NAND.
+Powyższe kroki powtórzono dla układu 7402 (NOR).
+Ze względu na brak dostępności układ 7486 (XOR) nie został zbadany.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c | c c || c c}
+        \hline
+        \(U_A\)[V] & stan logiczny A & \(U_B\)[V] & stan logiczny B & \(U_Y\)[V] & stan logiczny Y
+        \\ \hline\hline
+        0          & 0               & 0          & 0               & 3.96       & 1               \\ \hline
+        0          & 0               & 5.01       & 1               & 3.96       & 1               \\ \hline
+        5.01       & 1               & 0          & 0               & 3.96       & 1               \\ \hline
+        5.01       & 1               & 5.01       & 1               & 83m        & 0               \\ \hline
+    \end{tabular}
+    \caption{Wyniki badania bramki NAND w układzie 7400 (UCY7400), pomiary odpowiadają informacją zawartym w nocie katalogowej.}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c c | c c || c c}
+        \hline
+        \(U_A\)[V] & stan logiczny A & \(U_B\)[V] & stan logiczny B & \(U_Y\)[V] & stan logiczny Y
+        \\ \hline\hline
+        0          & 0               & 0          & 0               & 3.96       & 1               \\ \hline
+        0          & 0               & 5.01       & 1               & 162m       & 0               \\ \hline
+        5.01       & 1               & 0          & 0               & 163m       & 0               \\ \hline
+        5.01       & 1               & 5.01       & 1               & 161m       & 0               \\ \hline
+    \end{tabular}
+    \caption{Wyniki badania bramki NOR w układzie 7402 (74LS02), pomiary odpowiadają informacją zawartym w nocie katalogowej.}
+\end{table}

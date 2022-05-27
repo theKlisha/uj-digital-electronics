@@ -1,0 +1,36 @@
+\section{}
+Z bramek NAND w układzie scalonym 7400 zmontowano przerzutnik asynchroniczny RS.
+Sprawdzono tabelę przejść przerzutnika i porównano z teoretyczną.
+Zmontowany układ działał zgodnie z oczekiwaniami.
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+        \draw
+        (0, 1.5) node(gate1)[nand port] {}
+        (0, -1.5) node(gate2)[nand port] {};
+
+        \draw
+        (gate1.in 1) to[short,-*] ++(-1, 0)
+        node[anchor=east] {R}
+        (gate2.in 2) to[short,-*] ++(-1, 0)
+        node[anchor=east] {S}
+        (gate1.out) to[short,-*] ++(2, 0)
+        node[anchor=west] {Q}
+        (gate2.out) to[short,-*] ++(2, 0)
+        node[anchor=west] {$\overline{Q}$};
+
+        \draw
+        (gate1.in 2) to[short, -] ++(-0.5, 0)
+        to[short, -] ++(0, -0.7)
+        to[short, -] (1, -0.5)
+        to[short, -*] (1, |- gate2.out);
+
+        \draw
+        (gate2.in 1) to[short, -] ++(-0.5, 0)
+        to[short, -] ++(0, 0.7)
+        to[short, -] (1, 0.5)
+        to[short, -*] (1, |- gate1.out);
+    \end{circuitikz}
+    \caption{Schemat przerzutnika asynchronicznego RS zbudowanego z bramek NAND.}
+\end{figure}

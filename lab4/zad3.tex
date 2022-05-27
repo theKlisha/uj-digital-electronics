@@ -1,0 +1,129 @@
+\section{}
+Używając bramek logicznych NAND (7400), NOR (7402) zbudowano układ realizujący iloczyn logiczny, sumę logiczną oraz funkcję negacji.
+Sprawdzono poprawność tablicy logicznej zbudowanych układów.
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+        \draw
+        (0, 0) node(gate1)[nand port] {}
+        (2, 0) node(gate2)[nand port] {};
+
+        \draw
+        (gate1.in 1) to[short,-*] ++(-1, 0)
+        node[anchor=east] {A};
+
+        \draw
+        (gate1.in 2) to[short,-*] ++(-1, 0)
+        node[anchor=east] {B};
+
+        \draw
+        (gate2.out) to[short,-*] ++(1, 0)
+        node[anchor=west] {Y};
+
+        \draw
+        (gate1.out) to[short,-*] (gate2.in 1 |-, 0)
+        coordinate (center)
+        (center) to[short,-] (gate2.in 1)
+        (center) to[short,-] (gate2.in 2);
+    \end{circuitikz}
+    \caption{Schemat układu zbudowanego z bramek NAND realizującego iloczyn logiczny.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+        \draw
+        (0, 1) node(gate1)[nand port] {}
+        (0, -1) node(gate2)[nand port] {}
+        (2, 0) node(gate3)[nand port] {};
+
+        \draw
+        (gate1.in 1) to[short,-] (gate1.in 1 |-, 1)
+        (gate1.in 2) to[short,-] (gate1.in 2 |-, 1)
+        to[short,*-*] ++(-1, 0)
+        node[anchor=east] {A};
+
+        \draw
+        (gate2.in 1) to[short,-] (gate2.in 1 |-, -1)
+        (gate2.in 2) to[short,-] (gate2.in 2 |-, -1)
+        to[short,*-*] ++(-1, 0)
+        node[anchor=east] {B};
+
+        \draw
+        (gate1.out) to[short,-] (gate3.in 1 |- gate1.out)
+        to[short,-] (gate3.in 1);
+
+        \draw
+        (gate2.out) to[short,-] (gate3.in 2 |- gate2.out)
+        to[short,-] (gate3.in 2);
+
+        \draw
+        (gate3.out) to[short,-*] ++(1, 0)
+        node[anchor=west] {Y};
+    \end{circuitikz}
+    \caption{Schemat układu zbudowanego z bramek NAND realizującego sumę logiczną.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+        \draw
+        (0, 0) node(gate1)[nor port] {}
+        (2, 0) node(gate2)[nor port] {};
+
+        \draw
+        (gate1.in 1) to[short,-*] ++(-1, 0)
+        node[anchor=east] {A};
+
+        \draw
+        (gate1.in 2) to[short,-*] ++(-1, 0)
+        node[anchor=east] {B};
+
+        \draw
+        (gate2.out) to[short,-*] ++(1, 0)
+        node[anchor=west] {Y};
+
+        \draw
+        (gate1.out) to[short,-*] (gate2.in 1 |-, 0)
+        coordinate (center)
+        (center) to[short,-] (gate2.in 1)
+        (center) to[short,-] (gate2.in 2);
+    \end{circuitikz}
+    \caption{Schemat układu zbudowanego z bramek NOR realizującego sumę logiczną.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+        \draw
+        (0, 1) node(gate1)[nor port] {}
+        (0, -1) node(gate2)[nor port] {}
+        (2, 0) node(gate3)[nor port] {};
+
+        \draw
+        (gate1.in 1) to[short,-] (gate1.in 1 |-, 1)
+        (gate1.in 2) to[short,-] (gate1.in 2 |-, 1)
+        to[short,*-*] ++(-1, 0)
+        node[anchor=east] {A};
+
+        \draw
+        (gate2.in 1) to[short,-] (gate2.in 1 |-, -1)
+        (gate2.in 2) to[short,-] (gate2.in 2 |-, -1)
+        to[short,*-*] ++(-1, 0)
+        node[anchor=east] {B};
+
+        \draw
+        (gate1.out) to[short,-] (gate3.in 1 |- gate1.out)
+        to[short,-] (gate3.in 1);
+
+        \draw
+        (gate2.out) to[short,-] (gate3.in 2 |- gate2.out)
+        to[short,-] (gate3.in 2);
+
+        \draw
+        (gate3.out) to[short,-*] ++(1, 0)
+        node[anchor=west] {Y};
+    \end{circuitikz}
+    \caption{Schemat układu zbudowanego z bramek NOR realizującego iloczyn logiczny.}
+\end{figure}
