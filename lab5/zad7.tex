@@ -1,0 +1,15 @@
+\section{}
+Wykorzystując płytkę UC-1 zbudowano układ z dwóch rejestrów przesuwnych: 74164 i 74165.
+Szeregowe wejście rejestru 74164 podłączono do impulsatora, wyjścia równoległe rejestru podłączono do wskaźników LED w celu śledzenia stanu rejestru.
+Wyjścia równoległe układu 74164 podłączono również do wejść równoległych układu 74165, a jego wyjście szeregowe do próbnika stanów logicznych na płytce UC-1.
+Utworzony w ten sposób szereg (impulsator, 74164, 74165, wskaźnik logiczny) testowano następująco.
+
+Na wejście CLK rejestru 74164 podawano sygnał zegarowy, podając jednocześnie impulsy (z użyciem impulsatora) na wejście szeregowe.
+Za pośrednictwem diod LED obserwowano stan rejestru przesuwnego: bity przesuwały się o jeden ilekroć układ wykrywał narastające zbocze sygnału zegarowego.
+Najmłodszy bit odzwierciedlał stan impulsatora na wejściu szeregowym w momencie przesunięcia rejestru.
+
+Następnie chcąc przetestować działanie układu 74165, ustalono stan na magistrali równoległej pomiędzy dwoma rejestrami impulsując na wejście 74164, przesuwając go odpowiednio.
+W kolejnym kroku podano stan niski na wejście \(SH/\overline{LD}\) od 74165, co spowodowało zapis stanu ustalonego na magistrali równoległej do rejestru.
+Zmieniono stan wejścia \(SH/\overline{LD}\) na wysoki, umożliwia to przesunięcie rejestru 74165 na skutek narastającego zbocza sygnału zegarowego, oraz jednoczesne uniewrażliwienie go na zmianę stanu magistrali.
+Podawano następnie sygnał zegarowy obserwując jednocześnie stan wskaźnika logicznego na wyjściu szeregowym rejestru 74165.
+Z kolejnymi narastającymi zboczami na wejściu CLK rejestr przesuwał się ustawiając stan wyjścia szeregowego na kolejne bity zapisane uprzednio na magistrali równoległej.

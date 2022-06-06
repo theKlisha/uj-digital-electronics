@@ -1,0 +1,18 @@
+\section{}
+Wykorzystując zawarty w układzie 7593 przerzutnik JK zbudowano układ dzielący częstotliwość przez dwa.
+Dokonano tego łącząc ze sobą wejścia J i K przerzutnika JK otrzymując w ten sposób przerzutnik T.
+
+Przerzutniki w układzie 7593 wyzwalane są zboczem opadającym, które to występuje raz na okres sygnału prostokątnego.
+Negacja wyjścia występować więc będzie raz na okres sygnału wejściowego, co daje jeden okres sygnału wyjściowego na każde dwa okresy sygnału wejściowego. Jest to równoznaczne z podziałem częstotliwości na dwa.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c||c|c}
+        \hline
+        zegar               & d & \(Q_{n+1}\)        & \(\overline{Q_{n+1}}\)
+        \\ \hline\hline
+        \(-\)               & 0 & \(Q_n\)            & \(\overline{Q_n}\)     \\ \hline
+        1 \(\rightarrow\) 0 & 1 & \(\overline{Q_n}\) & \(Q_n\)                \\ \hline
+    \end{tabular}
+    \caption{Tabela prawdy zbudowanego przerzutnika T.}
+\end{table}

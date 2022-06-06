@@ -1,0 +1,18 @@
+\section{}
+Zbadano działanie zawartego w układzie 7475, wyzwalanego poziomem przerzutnika D
+Sygnał zegarowy oraz sygnał na wejście informacyjne podano za pomocą impulsatora znajdującego się na płytce UC-1.
+
+Zaobserwowane działanie przerzutnika było zgodne z oczekiwanym. W przeciwieństwie do przerzutnika D wyzwalanego zboczem, stan wyjścia badanego układu odzwierciedlał stan wejścia informacyjne tak długo jak stan wejścia zegarowego był wysoki.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c||c|c}
+        \hline
+        zegar & d     & \(Q_{n+1}\) & \(\overline{Q_{n+1}}\)
+        \\ \hline\hline
+        1     & 0     & 0           & 1                      \\ \hline
+        1     & 1     & 1           & 0                      \\ \hline
+        0     & \(-\) & \(Q_n\)     & \(\overline{Q_n}\)     \\ \hline
+    \end{tabular}
+    \caption{Tabela prawdy badanego przerzutnika D.}
+\end{table}

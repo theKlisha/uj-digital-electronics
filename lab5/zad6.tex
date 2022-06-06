@@ -1,0 +1,9 @@
+\section{}
+Zbudowano licznik modulo 10 modyfikując licznik modulo 16 z punktu 5.
+Przy modyfikacji wykorzystano zawartą w układzie 7400 bramkę NAND, której celem jest śledzenie wyjścia licznika i podanie sygnału resetującego w momencie doliczenia do 10.
+
+Stan wysoki wyjść \(Q_2\) i \(Q_4\) licznika (zakładając że zlicza on po kolei) jest warunkiem wystarczającym do stwierdzenia potrzeby resetu.
+Jest to spowodowanie tym że wyjścia \(Q_2\) i \(Q_4\), są w stanie wysokim tylko gdy licznik doliczył do 10, 11, 14 lub 15.
+
+Do wejść bramki NAND podłączono więc wejścia \(Q_2\) i \(Q_4\), natomiast do jej wyjścia podłączono \(R_0\) i \(R_1\).
+Doliczenie do którejkolwiek z liczb 10, 11, 14 lub 15 powoduje pojawienie się zera logicznego na wejścia resetujące i zresetowanie licznika.

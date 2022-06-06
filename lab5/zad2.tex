@@ -1,0 +1,19 @@
+\section{}
+Zbadano działanie zawartego w układzie 7474, wyzwalanego zboczem narastającym przerzutnika D
+Sygnał zegarowy podano za pomocą impulsatora znajdującego się na płytce UC-1.
+Zaobserwowane działanie przerzutnika było zgodne z oczekiwanym.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c||c|c}
+        \hline
+        zegar               & d     & \(Q_{n+1}\) & \(\overline{Q_{n+1}}\)
+        \\ \hline\hline
+        0 \(\rightarrow\) 1 & 0     & 0           & 1                      \\ \hline
+        0 \(\rightarrow\) 1 & 1     & 1           & 0                      \\ \hline
+        0                   & \(-\) & \(Q_n\)     & \(\overline{Q_n}\)     \\ \hline
+        1                   & \(-\) & \(Q_n\)     & \(\overline{Q_n}\)     \\ \hline
+    \end{tabular}
+    \caption{Tabela prawdy badanego przerzutnika D.}
+    % \\[\baselineskip] (*) Ustalony niski lub wysoki stan logiczny}
+\end{table}
